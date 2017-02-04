@@ -52,8 +52,18 @@ public class InternetButtonImpl implements InternetButtonApi {
 		// TODO Auto-generated method stub
 		
 		String input = "";
+		String pos = "";
 		
-		input = Integer.toString(postition) + color.getRGB();
+		if( postition < 10){
+			
+			pos = "0"+ postition;
+		
+		}else{
+				pos = postition + "";
+		}
+			
+		
+		input = pos + color.getRGB();
 
 		// nn = Position 01-12
 		// rrr = rot

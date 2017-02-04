@@ -17,7 +17,7 @@ public class LedDemoApp {
 		InternetButtonImpl internetButton = new InternetButtonImpl(api);
 		
 		// TODO Auto-generated method stub
-		internetButton.setLed(1, new Color(255255255));
+		internetButton.setLed(4, new Color(255255255));
 		internetButton.allLedsOff();
 	}
 
