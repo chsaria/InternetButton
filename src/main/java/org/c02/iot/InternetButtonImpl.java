@@ -24,11 +24,36 @@ public class InternetButtonImpl implements InternetButtonApi {
 
 	public void setLed(int postition, Color color) {
 		// TODO Auto-generated method stub
+		
+		String input = "";
+		
+		input = Integer.toString(postition) + color.getRGB();
+
+		// nn = Position 01-12
+		// rrr = rot
+		// ggg = grün
+		// bbb = blau
+		//                    nnrrrgggbbb
+		try {
+			wrapper.callMethod("led",input);
+		} catch (ParticleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 	public void allLedsOff() {
 		// TODO Auto-generated method stub
 
+		try {
+			wrapper.callMethod("ledsOff",null);
+		} catch (ParticleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  //Schaltet die LEDs aus		
+		
 	}
 
 	public void playSound() {
