@@ -43,8 +43,8 @@ public class BehaviourTest {
 			}
 		};
 
-		CountAndShowLed beh = new CountAndShowLed(buttonInstance);
+		//CountAndShowLed beh = new CountAndShowLed(buttonInstance);
 
-		beh.run();
+		//beh.run();
 	}
 }
