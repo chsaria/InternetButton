@@ -1,6 +1,7 @@
 package org.c02.iot;
 
 import java.awt.Color;
+import java.io.IOException;
 
 import org.c02.iot.cloud.api.ParticleApiWrapper;
 import org.c02.iot.cloud.api.ParticleException;
@@ -13,13 +14,38 @@ public class InternetButtonImpl implements InternetButtonApi {
 		wrapper = wrapperInstance;
 	}
 
-	public InternetButtonImpl(String deviceid, String accesstoken) {
-		// TODO Auto-generated constructor stub
-	}
-
 	public int getButtonCounter(ButtonDirection button) {
+		
+		String buttonName = null;
+		
+		switch (button) {
+		
+		case North:
+			buttonName = "countButton1";
+			break;
+		case East:
+			buttonName = "countButton3";
+			break;
+		case South:
+			buttonName = "countButton2";
+			break;
+		case West:	
+			buttonName = "countButton4";
+			break;
+		};
+
+		
 		// TODO Auto-generated method stub
+		try {
+			return wrapper.readVariable(buttonName);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		
 		return 0;
+
 	}
 
 	public void setLed(int postition, Color color) {
@@ -67,7 +93,13 @@ public class InternetButtonImpl implements InternetButtonApi {
 	}
 
 	public void resetButtonCounters() {
-		// TODO Auto-generated method stub
+
+		try {
+			wrapper.callMethod("reset",null);
+		} catch (ParticleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 		
 	}
 

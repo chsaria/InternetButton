@@ -14,7 +14,7 @@ public class InternetButtonImplTest {
 	static ParticleApiWrapper api = new ParticleApiWrapperImpl(DemoConstants.deviceId,
 			DemoConstants.accessToken);	
 	
-	private InternetButtonImpl internetButton = new InternetButtonImpl(api);
+	private InternetButtonImpl internetButton = Mockito.mock(InternetButtonImpl.class);
 		
 	
 	@Test
@@ -32,7 +32,6 @@ public class InternetButtonImplTest {
 	public void testPlaySound() {
 	
 		internetButton.playSound();
-//		Mockito.verify(internetButton, Mockito.atLeastOnce().playSound());
 		
 	}
 
