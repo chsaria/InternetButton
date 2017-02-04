@@ -18,6 +18,7 @@ public class LedDemoApp {
 		
 		// TODO Auto-generated method stub
 		internetButton.setLed(1, new Color(255255255));
+		internetButton.allLedsOff();
 	}
 
 }
