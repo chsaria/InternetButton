@@ -1,5 +1,7 @@
 package org.c02.iot.cloud.examples;
 
+import java.awt.Color;
+
 import org.c02.iot.InternetButtonImpl;
 import org.c02.iot.cloud.api.ParticleApiWrapper;
 import org.c02.iot.cloud.api.ParticleApiWrapperImpl;
@@ -15,8 +17,7 @@ public class LedDemoApp {
 		InternetButtonImpl internetButton = new InternetButtonImpl(api);
 		
 		// TODO Auto-generated method stub
-		
-		internetButton.playSound(); // Spielt einen melodie ab
+		internetButton.setLed(1, new Color(255255255));
 	}
 
 }

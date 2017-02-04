@@ -17,8 +17,7 @@ public class PlayDemoApp {
 		InternetButtonImpl internetButton = new InternetButtonImpl(api);
 		
 		// TODO Auto-generated method stub
-		
-		internetButton.setLed(1, new Color(255255255)); // Spielt einen melodie ab
+		internetButton.playSound(); // Spielt einen melodie ab
 	}
 
 }
