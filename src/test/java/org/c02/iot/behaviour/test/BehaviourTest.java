@@ -3,9 +3,13 @@ package org.c02.iot.behaviour.test;
 import java.awt.Color;
 
 import org.c02.iot.InternetButtonApi;
+import org.c02.iot.InternetButtonImpl;
 import org.c02.iot.behaviour.CountAndShowLed;
+import org.c02.iot.cloud.api.ParticleApiWrapper;
+import org.c02.iot.cloud.api.ParticleApiWrapperImpl;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 public class BehaviourTest {
 
@@ -43,7 +47,8 @@ public class BehaviourTest {
 			}
 		};
 
-		//CountAndShowLed beh = new CountAndShowLed(buttonInstance);
+		//Count and Show Led: entfernt, da impl. falsch
+		//CountAndShowLed beh = new CountAndShowLed(buttonInstance2);
 
 		//beh.run();
 	}
