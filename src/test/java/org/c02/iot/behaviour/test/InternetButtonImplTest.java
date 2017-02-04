@@ -1,11 +1,10 @@
 package org.c02.iot.behaviour.test;
 
-import static org.junit.Assert.*;
-
 import java.awt.Color;
 import java.io.IOException;
 
 import org.c02.iot.InternetButtonImpl;
+import org.c02.iot.behaviour.CountAndShowLed;
 import org.c02.iot.InternetButtonApi.ButtonDirection;
 import org.c02.iot.cloud.api.ParticleApiWrapper;
 import org.c02.iot.cloud.api.ParticleApiWrapperImpl;
@@ -62,5 +61,19 @@ public class InternetButtonImplTest {
 		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("play",null);
 		
 	}
-
+	
+	@Test
+	public void testCountAndShowLed() throws IOException, ParticleException{
+		Mockito.when(api.readVariable("countButton1")).thenReturn(5);
+		CountAndShowLed countAndShow = new CountAndShowLed(button);
+		countAndShow.setLedToButtonClicks();
+		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("ledsOff",null);
+		Mockito.verify(api, Mockito.atLeastOnce()).readVariable("countButton1");
+		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("led", "01"+ Integer.toString(Color.GREEN.getRGB()));
+		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("led", "02"+ Integer.toString(Color.GREEN.getRGB()));
+		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("led", "03"+ Integer.toString(Color.GREEN.getRGB()));
+		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("led", "04"+ Integer.toString(Color.GREEN.getRGB()));
+		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("led", "05"+ Integer.toString(Color.GREEN.getRGB()));
+	}
+	
 }
