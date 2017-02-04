@@ -5,16 +5,16 @@ import static org.junit.Assert.*;
 import org.c02.iot.InternetButtonImpl;
 import org.c02.iot.cloud.api.ParticleApiWrapper;
 import org.c02.iot.cloud.api.ParticleApiWrapperImpl;
-import org.c02.iot.cloud.examples.DemoConstants;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 public class InternetButtonImplTest {
 
-	static ParticleApiWrapper api = new ParticleApiWrapperImpl(DemoConstants.deviceId,
-			DemoConstants.accessToken);	
+	static ParticleApiWrapper api = Mockito.mock(ParticleApiWrapperImpl.class);
 	
-	private InternetButtonImpl internetButton = Mockito.mock(InternetButtonImpl.class);
+	//
+	
+	private InternetButtonImpl internetButton = new  InternetButtonImpl(api);
 		
 	
 	@Test
@@ -30,8 +30,7 @@ public class InternetButtonImplTest {
 
 	@Test
 	public void testPlaySound() {
-	
-		internetButton.playSound();
+
 		
 	}
 
