@@ -45,7 +45,7 @@ public class InternetButtonImplTest {
 	public void testSetLed() throws ParticleException {
 		
 		button.setLed(1, Color.RED);
-		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("led", "01"+ Integer.toString(Color.RED.getRGB()));
+		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("led", "01255000000");
 	}
 
 	@Test
@@ -69,11 +69,11 @@ public class InternetButtonImplTest {
 		countAndShow.setLedToButtonClicks();
 		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("ledsOff",null);
 		Mockito.verify(api, Mockito.atLeastOnce()).readVariable("countButton1");
-		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("led", "01"+ Integer.toString(Color.GREEN.getRGB()));
-		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("led", "02"+ Integer.toString(Color.GREEN.getRGB()));
-		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("led", "03"+ Integer.toString(Color.GREEN.getRGB()));
-		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("led", "04"+ Integer.toString(Color.GREEN.getRGB()));
-		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("led", "05"+ Integer.toString(Color.GREEN.getRGB()));
+		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("led", "01000255000");
+		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("led", "02000255000");
+		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("led", "03000255000");
+		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("led", "04000255000");
+		Mockito.verify(api, Mockito.atLeastOnce()).callMethod("led", "05000255000");
 	}
 	
 }

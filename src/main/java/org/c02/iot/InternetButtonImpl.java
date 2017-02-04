@@ -63,13 +63,35 @@ public class InternetButtonImpl implements InternetButtonApi {
 		}
 			
 		
-		input = pos + color.getRGB();
+	    Integer red= color.getRed();
+	    Integer green = color.getGreen();
+	    Integer blue = color.getBlue();
+	    String strRed = red.toString();
+	    String strGreen = green.toString();
+	    String strBlue = blue.toString();
+	    if(blue < 10)
+	    	strBlue = "00" + strBlue;
+	    else if(blue < 100)
+	    	strBlue = "0" + strBlue;
+	    if(red < 10)
+	    	strRed = "00" + strRed;
+	    else if(red < 100)
+	    	strRed = "0" + strRed;
+	    if(green < 10)
+	    	strGreen = "00" + strGreen;
+	    else if(green < 100)
+	    	strGreen = "0" + strGreen;
+	    	
+		input = pos + strRed + strGreen + strBlue;//color.getRGB();
 
 		// nn = Position 01-12
 		// rrr = rot
 		// ggg = grün
 		// bbb = blau
 		//                    nnrrrgggbbb
+		
+		System.out.println("Color: "+input);
+		
 		try {
 			wrapper.callMethod("led",input);
 		} catch (ParticleException e) {
